@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import styled from '@emotion/styled'
 import { pageSize } from '../data/constants'
 
@@ -13,7 +13,7 @@ const Table=({data=[], heading="Apps Info"})=>{
     //const endIndex=(startIndex + currentPageSize.label)
     // const totalDataSize=data?.length
     // const totalPages=Math.ceil(totalDataSize/currentPageSize.label)
-    const [totalDataSize, setTotalDataSize]=useState(data?.length)
+    //const [totalDataSize, setTotalDataSize]=useState(data?.length)
     const [totalPages, setTotalPages]=useState(Math.ceil(data?.length/currentPageSize.label))
     const headers=Object.keys(data[0])
 
@@ -48,7 +48,7 @@ const Table=({data=[], heading="Apps Info"})=>{
             let newRenderData=data.filter(row=>  Object.values(row).some( (value) => typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase())
             ))
           newDataSize=newRenderData.length
-          setTotalDataSize(newDataSize)
+          //setTotalDataSize(newDataSize)
           setTotalPages(Math.ceil(newDataSize/currentPageSize.label))
           setRenderData(newRenderData)
           modifyData(0,currentPageSize.label,newRenderData)

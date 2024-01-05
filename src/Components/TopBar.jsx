@@ -22,7 +22,7 @@ const TopBar=()=>{
         const file = e.target.files[0];
 
         try {
-            const arrayData= await excelConvertor(file)
+            await excelConvertor(file)
         }catch(error){
             console.error("some error occured")
         }
