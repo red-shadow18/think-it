@@ -270,8 +270,9 @@ const Container = styled.div`
   .active {
     min-width: 20px;
     border-radius: 4px;
+    padding:2px;
     color: ${(props) =>
-      props.isCurrentThemeDark ? lightTheme.text : darkTheme.text};
+      props.isCurrentThemeDark ? darkTheme.text : lightTheme.text};
     background-color: ${(props) =>
       props.isCurrentThemeDark ? darkTheme.background : lightTheme.background};
     font-weight: 700;

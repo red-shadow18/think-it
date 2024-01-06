@@ -8,9 +8,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import TableRowsIcon from "@mui/icons-material/TableRows";
-import { excelConvertor } from "../utils/excelToArray";
-import appData from "../data/appData";
-import finalReviews from "../data/appReviews";
+//import { excelConvertor } from "../utils/excelToArray";
 import { lightTheme, darkTheme } from "../utils/theme";
 
 const TopBar = () => {

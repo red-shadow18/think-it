@@ -8,7 +8,7 @@ import { darkTheme, lightTheme } from "../utils/theme";
 const ContactMe = () => {
   const isCurrentThemeDark = useSelector((state) => state.darkTheme);
   return (
-    <Container>
+    <Container isCurrentThemeDark={isCurrentThemeDark}>
       <p>I hope you have liked my project!!</p>
       <p className="contactInfo">
         You can reach me at: <EmailIcon /> : reachayushmishra@gmail.com ||{" "}

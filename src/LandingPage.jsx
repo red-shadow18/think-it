@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 import GraphView from "./Components/GraphView";
 import ContactMe from "./Components/ContactMe";
 
-const views = {
-  true: <Table />,
-  false: <GraphView />,
-};
+// const views = {
+//   true: <Table />,
+//   false: <GraphView />,
+// };
 
 const renderView = (isCurrentModeExpert) => {
   if (isCurrentModeExpert) {
