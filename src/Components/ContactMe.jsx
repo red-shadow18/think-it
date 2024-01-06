@@ -23,6 +23,10 @@ export default ContactMe;
 
 const Container = styled.div`
 margin-top:50px;
+width: 100%;
+    position: sticky;
+    left: 0;
+    bottom: 0;
   color: ${(props) =>
     props.isCurrentThemeDark ? lightTheme.text : darkTheme.text};
   background-color: ${(props) =>

@@ -5,7 +5,7 @@ const enhancer= window.__REDUX_DEVTOOLS_EXTENSION && window.__REDUX_DEVTOOLS_EXT
 
 const initialState={
     darkTheme:true,
-    expertMode:true,
+    expertMode:false,
     isUserAuthenticated:false
 }
 
