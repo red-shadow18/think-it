@@ -30,6 +30,8 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
     setCurrentPageSize(currentPageSize);
     setCurrentPage(1);
     modifyData(0, currentPageSize.label);
+    let dataSize = renderData.length;
+    setTotalPages(Math.ceil(dataSize / currentPageSize.label))
   };
 
   const handlePageChange = (currentPageNumber) => {
