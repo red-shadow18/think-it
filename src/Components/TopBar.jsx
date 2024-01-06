@@ -9,7 +9,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import TableRowsIcon from "@mui/icons-material/TableRows";
 import LogoutIcon from '@mui/icons-material/Logout';
-//import { excelConvertor } from "../utils/excelToArray";
+// import { excelConvertor } from "../utils/excelToArray";
 import { lightTheme, darkTheme } from "../utils/theme";
 
 const TopBar = () => {
@@ -26,6 +26,7 @@ const TopBar = () => {
 
   const handleLogout=()=>{
     dispatch(switchAuthentication())
+    window.alert("Logging out!!")
   }
   //  const handleFileChange= async (e)=>{
   //     const file = e.target.files[0];
@@ -131,6 +132,10 @@ const Container = styled.div`
     align-items: flex-end;
     padding: 10px;
     gap: 10px;
+
+    @media (max-width:1240px){
+      flex-direction: column;
+    }
 
     h2 {
       margin: 0;

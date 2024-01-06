@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { lightTheme, darkTheme } from "../utils/theme";
 import appData from "../data/appData";
 
+
+
 const Table = ({ data = appData, heading = "Apps Info" }) => {
   const isCurrentThemeDark = useSelector((state) => state.darkTheme);
   const [currentPageSize, setCurrentPageSize] = useState({ id: 1, label: 10 });
@@ -64,7 +66,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
             (typeof value === "string" &&
               value.toLowerCase().includes(searchTerm.toLowerCase())) ||
             (Array.isArray(value) &&
-              value.join(";").toLowerCase().includes(searchTerm.toLowerCase()))
+              value.join(" & ").toLowerCase().includes(searchTerm.toLowerCase()))
         )
       );
       newDataSize = newRenderData.length;
@@ -74,6 +76,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
       modifyData(0, currentPageSize.label, newRenderData);
     } else {
       setRenderData(data);
+      setTotalPages(Math.ceil(data.length / currentPageSize.label));
       modifyData(0, currentPageSize.label, data);
     }
   };
@@ -94,21 +97,21 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
         <table>
           <thead>
             <tr>
-              {headers.map((label) => (
-                <th>{label}</th>
+              {headers.map((label,index) => (
+                <th key={"H"+index}>{label}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((data) => (
-              <tr>
-                {headers.map((label) => {
+            {filteredData.map((data,index1) => (
+              <tr key={"D"+index1}>
+                {headers.map((label,index2) => {
                   if (label === "Last Updated") {
-                    return <td>{generateDate(data[label])}</td>;
-                  } else if (label === "Genres") {
-                    return <td>{data[label].join(";")}</td>;
+                    return <td key={"R"+((index1*index2)+Math.random())}>{generateDate(data[label])}</td>;
+                  } else if (label === "Category") {
+                    return <td key={"R"+((index1*index2)+Math.random())}>{data[label].join(" & ")}</td>;
                   } else {
-                    return <td>{data[label]}</td>;
+                    return <td key={"R"+((index1*index2)+Math.random())}>{data[label]}</td>;
                   }
                 })}
               </tr>
@@ -245,10 +248,10 @@ const Container = styled.div`
     box-sizing: border-box;
   }
 
-  tbody tr:nth-child(odd) {
+  tbody tr:nth-of-type(odd) {
     background-color: #e2e2e2;
   }
-  tbody tr:nth-child(even) {
+  tbody tr:nth-of-type(even) {
     background-color: #9da29d;
   }
 

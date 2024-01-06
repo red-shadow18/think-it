@@ -7,7 +7,7 @@ export const reducer=(state, action)=>{
         return {...state, darkTheme:!state.darkTheme}
     }else if(type===SWITCH_MODE){
         return {...state, expertMode:!state.expertMode}
-    }else if( type==SWITCH_AUTHENTICATION){
+    }else if( type===SWITCH_AUTHENTICATION){
         return {...state, isUserAuthenticated:!state.isUserAuthenticated}
     }
     return state

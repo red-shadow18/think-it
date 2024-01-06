@@ -55,7 +55,7 @@ const LoginPage=()=>{
             </div>
             
         </div>
-        <button onClick={handleCheckAuthentication}>Login</button>    
+        <button id="loginButton" onClick={handleCheckAuthentication}>Login</button>    
         </div>
     </Container>
 }
@@ -103,6 +103,9 @@ button {
     right:0;
 }
 
+#loginButton{
+    margin-top:10px;
+}
 
 
 `
