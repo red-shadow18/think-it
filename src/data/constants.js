@@ -5,8 +5,13 @@ const pageSize=[
     {id:4,label:100}
 ]
 
+const logInCredentials={
+    correctUsername:"ayush.m@thinkit.com",
+    correctPassword:"yesSelected"
+}
 
 
 export {
-    pageSize
+    pageSize,
+    logInCredentials
 }

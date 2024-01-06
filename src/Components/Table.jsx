@@ -263,6 +263,7 @@ const Container = styled.div`
     overflow: auto;
     padding: 10px !important;
     margin: 0 !important;
+    justify-content: center;
 
     li:hover {
       scale: 1.2;

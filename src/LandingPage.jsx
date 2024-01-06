@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import GraphView from "./Components/GraphView";
 import ContactMe from "./Components/ContactMe";
 
+
 // const views = {
 //   true: <Table />,
 //   false: <GraphView />,
@@ -23,6 +24,7 @@ const renderView = (isCurrentModeExpert) => {
 const LandingPage = () => {
   const isCurrentThemeDark = useSelector((state) => state.darkTheme);
   const isCurrentModeExpert = useSelector((state) => state.expertMode);
+
   return (
     <Container isCurrentThemeDark={isCurrentThemeDark}>
       <TopBar />

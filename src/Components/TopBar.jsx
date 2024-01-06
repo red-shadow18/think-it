@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
-import { switchMode, switchTheme } from "../redux/action";
+import { switchAuthentication, switchMode, switchTheme } from "../redux/action";
 import { useSelector } from "react-redux";
 import Toggle from "./Toogle";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import TableRowsIcon from "@mui/icons-material/TableRows";
+import LogoutIcon from '@mui/icons-material/Logout';
 //import { excelConvertor } from "../utils/excelToArray";
 import { lightTheme, darkTheme } from "../utils/theme";
 
@@ -22,6 +23,10 @@ const TopBar = () => {
   const handleSwitchMode = () => {
     dispatch(switchMode());
   };
+
+  const handleLogout=()=>{
+    dispatch(switchAuthentication())
+  }
   //  const handleFileChange= async (e)=>{
   //     const file = e.target.files[0];
 
@@ -56,6 +61,15 @@ const TopBar = () => {
           falseStateIcon={<LightModeIcon />}
           trueStateToolTip="Swtich to light mode"
           falseStateToolTip="Swtich to dark mode"
+        />
+        <Toggle
+          id="log-me-out"
+          onClick={handleLogout}
+          currentState={true}
+          trueStateIcon={<LogoutIcon />}
+          falseStateIcon={<LogoutIcon />}
+          trueStateToolTip="Logout"
+          falseStateToolTip="Logout"
         />
 
         {/* <input type="file" onChange={handleFileChange} /> */}
