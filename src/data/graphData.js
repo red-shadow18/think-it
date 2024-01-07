@@ -9,8 +9,9 @@ const differentContentCount={
     mature:0,
     adult:0,
     unrated:0
-
 }
+
+
 
 let distinctCategories=[]
 appData.forEach(entry=>{
@@ -36,10 +37,10 @@ appData.forEach(entry=>{
         }
 
         if(parseInt(entry["Size"])){
-            
+            let currentAppsize=entry["Size"].split('').includes("k")?parseFloat(entry["Size"])/1000:parseFloat(entry["Size"])
             let currentTotalSize=transFormedObj.averageSize*transFormedObj.appsWithSizeAvl
             transFormedObj.appsWithSizeAvl +=1
-            transFormedObj.averageSize=(currentTotalSize+parseInt(entry["Size"]))/transFormedObj.appsWithSizeAvl
+            transFormedObj.averageSize=(currentTotalSize+currentAppsize)/transFormedObj.appsWithSizeAvl
         }
 
         let newMostUpdated=transFormedObj.mostUpdated
@@ -162,5 +163,29 @@ const contentRatingDistribution={
     labels:allContents,
     dataSets:dataSets,
 }
-console.log(contentRatingDistribution)
-export {distinctCategories, sentimentData,categoryDistribution, contentRatingDistribution}
+
+const typeDistribution={
+    labels:appLabels,
+    totalFreeApps:distinctCategories.reduce(((a,b)=>a+b.numberOfFreeApps),0),
+    totalPaidApps:distinctCategories.reduce(((a,b)=>a+b.numberOfPaidApps),0),
+    freeCategoryWise:distinctCategories.map(app=>app.numberOfFreeApps),
+    paidCategoryWise:distinctCategories.map(app=>app.numberOfPaidApps),
+
+}
+
+const mostExpensiveAndMostDownloadedCategoryWise={
+    labels:appLabels,
+    mostExpensive:distinctCategories.map(category=>({x:category.category,y: category.mostExpensiveApp[0]['price']})),
+    mostDownloaded:distinctCategories.map(category=>category.totalCategoryDownloads)
+
+}
+
+const ratingsAndSizeData={
+    labels:appLabels,
+    avgRatings:distinctCategories.map(category=>parseFloat(category.averageRating.toFixed(2))),
+    avgAppsize:distinctCategories.map(category=>parseFloat(category.averageSize.toFixed(2))),
+}
+
+const maintainanceRecord=distinctCategories.map((category,index)=>[index+1, category.category, category.mostDownloaded.reduce(((a,b)=>a+", "+b.name),""),category.mostUpdated.reduce(((a,b)=>a+", "+b.name),""), category.mostUpdated[0].lastupdatedOn])
+console.log(mostExpensiveAndMostDownloadedCategoryWise)
+export {distinctCategories, sentimentData,categoryDistribution, contentRatingDistribution, typeDistribution, maintainanceRecord, mostExpensiveAndMostDownloadedCategoryWise,ratingsAndSizeData}

@@ -1,10 +1,10 @@
 import React,{useState} from "react";
-import styled from "@emotion/styled";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { backgroundColors, borderColors } from "../../data/constants";
 import { useSelector } from "react-redux";
 import { darkTheme, lightTheme } from "../../utils/theme";
+import Container from "./Styles";
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -50,14 +50,3 @@ const DoughnutChart=({id,heading,label,labels,data})=>{
 }
 
 export default DoughnutChart
-
-const Container=styled.div`
-    /* width: 700px;
-    height: 700px; */
-
-    p{
-        font-weight: 500;
-    font-size: 16px;
-    text-decoration: underline;
-    }
-`

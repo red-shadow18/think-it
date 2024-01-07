@@ -1,11 +1,10 @@
 import React from "react";
-import styled from "@emotion/styled";
 import {
     Chart as ChartJS,
     registerables 
   } from 'chart.js'
 import { Bar } from 'react-chartjs-2';
-import { contentRatingDistribution } from "../../data/graphData";
+import Container from "./Styles";
 
 ChartJS.register(
     ...registerables 
@@ -25,11 +24,10 @@ const StackedBarChart=({id,heading,data})=>{
           },
     }
     const chartData={
-        labels:contentRatingDistribution.labels,
-        datasets:contentRatingDistribution.dataSets,        
+        labels:data.labels,
+        datasets:data.dataSets,        
     }
 
-    console.log(chartData)
     return <Container>
         <p>{heading}</p>
         <Bar id={id} data={chartData} options={chartOptions} />
@@ -37,11 +35,3 @@ const StackedBarChart=({id,heading,data})=>{
 }
 
 export default StackedBarChart
-
-const Container= styled.div`
-        p{
-        font-weight: 500;
-    font-size: 16px;
-    text-decoration: underline;
-    }
-`

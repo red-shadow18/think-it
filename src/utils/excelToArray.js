@@ -43,7 +43,7 @@ export const excelConvertor=(filePath)=>{
    
                    
         })
-        console.log(transformedArray)
+      //  console.log(transformedArray)
     }
     reader.readAsArrayBuffer(file);
 }

@@ -5,7 +5,12 @@ import { useSelector } from "react-redux";
 import { lightTheme, darkTheme } from "../utils/theme";
 import appData from "../data/appData";
 
-
+const generateDate = (epochTime) => {
+  let date = new Date(epochTime);
+  return (
+    date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+  );
+};
 
 const Table = ({ data = appData, heading = "Apps Info" }) => {
   const isCurrentThemeDark = useSelector((state) => state.darkTheme);
@@ -46,12 +51,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
     setFilteredData(displayData.slice(startIndex, endIndex + 1));
   };
 
-  const generateDate = (epochTime) => {
-    let date = new Date(epochTime);
-    return (
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-    );
-  };
+
 
   const handleSearchTextChange = (e) => {
     let searchTerm = e.target.value;
@@ -158,6 +158,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
 };
 
 export default Table;
+export {generateDate}
 
 const Container = styled.div`
   .headingAndSearch {
