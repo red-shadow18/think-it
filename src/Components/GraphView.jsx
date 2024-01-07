@@ -19,11 +19,13 @@ const GraphView=()=>{
         label="No of apps"
         labels={categoryDistribution.labels}
         data={categoryDistribution.data}
+        width="30%"
         />
          <StackedBarChart
          id="Chart-2"
         heading="Category wise content rating"
         data={contentRatingDistribution}
+        width="70%"
         />
         <TypeContainer>
         <DoughnutChart
@@ -32,6 +34,7 @@ const GraphView=()=>{
         label="No of apps"
         labels={["Free","Paid"]}
         data={[typeDistribution.totalFreeApps, typeDistribution.totalPaidApps]}
+        width="30%"
         />
         <DoughnutChart
         id="Chart-3.2"
@@ -39,6 +42,7 @@ const GraphView=()=>{
         label="No of apps"
         labels={categoryDistribution.labels}
         data={typeDistribution.freeCategoryWise}
+        width="30%"
         />
         <DoughnutChart
         id="Chart-3.3"
@@ -46,6 +50,7 @@ const GraphView=()=>{
         label="No of apps"
         labels={categoryDistribution.labels}
         data={typeDistribution.paidCategoryWise}
+        width="30%"
         />
         </TypeContainer>
     <UpdatesInfoContainer>
@@ -75,7 +80,8 @@ const GraphView=()=>{
     id="Chart-4"
     data={mostExpensiveAndMostDownloadedCategoryWise}
     heading="Category wise price of most expensive app"
-    label="Price ($)"                    
+    label="Price ($)"
+    width="70%"                    
     />
 
 <DoughnutChart
@@ -84,6 +90,7 @@ const GraphView=()=>{
         label="No of downloads"
         labels={mostExpensiveAndMostDownloadedCategoryWise.labels}
         data={mostExpensiveAndMostDownloadedCategoryWise.mostDownloaded}
+        width="30%"
         />
 
 <Barchart
@@ -163,7 +170,7 @@ p{
     @media (max-width: 1024px) {
       width: 100% !important;
     }
-    background-color: black;
+    background-color: #00000080;
     color: white;
   }
 
@@ -186,9 +193,9 @@ p{
   }
 
   tbody tr:nth-of-type(odd) {
-    background-color: #e2e2e2;
+    background-color: #fac7c7;
   }
   tbody tr:nth-of-type(even) {
-    background-color: #9da29d;
+    background-color: #f5e1de;
   }
 `

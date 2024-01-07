@@ -9,7 +9,7 @@
  const lightTheme = {
   primary: "#2980b9 ",
   secondary: "#5499c7",
-  background: "#2980b9",
+  background: "#081e2d",
   text: "#ecf0f1",
   heading: "#2c3e50",
 };

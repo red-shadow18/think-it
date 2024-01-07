@@ -12,7 +12,7 @@ ChartJS.register(
   )
 
 
-const StackedBarChart=({id,heading,data,allowFilters=false, filterOptions, handleFilterChange, filterLabel, filterValue})=>{
+const StackedBarChart=({id,heading,data,allowFilters=false, width, filterOptions, handleFilterChange, filterLabel, filterValue})=>{
 
 
     const chartOptions={
@@ -30,7 +30,7 @@ const StackedBarChart=({id,heading,data,allowFilters=false, filterOptions, handl
         datasets:data.dataSets,        
     }
 
-    return <Container>
+    return <Container width={width}>
        <div className="dp-flx">
        <p>{heading}</p>
         {allowFilters && <Dropdown options={filterOptions} label={filterLabel} handleChange={handleFilterChange} value={filterValue}/>}

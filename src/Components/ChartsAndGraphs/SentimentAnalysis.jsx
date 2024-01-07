@@ -39,13 +39,14 @@ const SentimentAnalysis=()=>{
         }
         return <StackedBarChart
           id="Chart-8"
-         heading="Sentiment analysis"
+         heading="Sentiment analysis (based on reviews)"
          data={sentimentsModifiedData}
          allowFilters={true}
          filterOptions={sentimentFilters}
          handleFilterChange={handleSentimentChange}
          filterLabel="Sentiment type"
          filterValue={sentimentValue.id}
+         width="100%"
          />
     }
 

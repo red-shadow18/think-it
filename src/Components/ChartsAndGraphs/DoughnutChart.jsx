@@ -8,7 +8,7 @@ import Container from "./Styles";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DoughnutChart=({id,heading,label,labels,data, showFilter=false})=>{
+const DoughnutChart=({id,heading,label,labels,data,width,showFilter=false})=>{
     const [options,setOptions]=useState([])
     const handleFilterChange=()=>{
 
@@ -45,7 +45,7 @@ const DoughnutChart=({id,heading,label,labels,data, showFilter=false})=>{
             }
           },
     }
-    return <Container>
+    return <Container width={width}>
         <p>{heading}</p>
         <Doughnut id={id} data={chartData} options={chartOptions}/>
     </Container>

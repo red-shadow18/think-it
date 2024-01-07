@@ -227,7 +227,7 @@ const Container = styled.div`
     @media (max-width: 1024px) {
       width: 100% !important;
     }
-    background-color: black;
+    background-color: #00000080;
     color: white;
   }
 
@@ -250,10 +250,10 @@ const Container = styled.div`
   }
 
   tbody tr:nth-of-type(odd) {
-    background-color: #e2e2e2;
+    background-color: #fac7c7;
   }
   tbody tr:nth-of-type(even) {
-    background-color: #9da29d;
+    background-color: #f5e1de;
   }
 
   .allPages {

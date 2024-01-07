@@ -7,6 +7,7 @@ flex-direction: column;
 justify-content: center;
 width:${props=>props.width||"50%"};
 margin-top: 20px;
+padding: 10px;
 
 @media (max-width:1240px){
     width: 100%;

@@ -186,7 +186,7 @@ const ratingsAndSizeData={
     avgAppsize:distinctCategories.map(category=>parseFloat(category.averageSize.toFixed(2))),
 }
 
-const maintainanceRecord=distinctCategories.map((category,index)=>[index+1, category.category, category.mostDownloaded.reduce(((a,b)=>a+", "+b.name),""),category.mostUpdated.reduce(((a,b)=>a+", "+b.name),""), category.mostUpdated[0].lastupdatedOn])
+const maintainanceRecord=distinctCategories.map((category,index)=>[index+1, category.category, category.mostDownloaded.reduce(((a,b)=>a+b.name+", "),""),category.mostUpdated.reduce(((a,b)=>a+b.name+", "),""), category.mostUpdated[0].lastupdatedOn])
 
 let sentimentDataSet=[]
 sentimentData.forEach((data,index)=>{

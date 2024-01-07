@@ -3,7 +3,7 @@ import { Scatter } from 'react-chartjs-2';
 import Container from "./Styles";
 
 
-const ScatterChart=({heading,data,label})=>{
+const ScatterChart=({heading,data,label,width})=>{
     const chartData={
         labels:data.labels,
         datasets:[
@@ -28,7 +28,7 @@ const ScatterChart=({heading,data,label})=>{
             },
           },
     }
-return <Container>
+return <Container width={width}>
 <p>{heading}</p>
 <Scatter data={chartData} options={chartOptions} />
 </Container>
