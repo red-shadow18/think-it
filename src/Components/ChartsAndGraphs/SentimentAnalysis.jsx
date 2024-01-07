@@ -13,27 +13,57 @@ const SentimentAnalysis=()=>{
             (sentiment) => sentiment.id === parseInt(e.target.value)
           );
           setSentimentValue(currentSentiment);
-          let newSentimentsData={...sentimentsFinalData}
+          
           if(currentSentiment.id===1){
+            let newSentimentsData={...sentimentsFinalData}
             setSentimentsModifiedData(newSentimentsData)
           }else if(currentSentiment.id===2){
-            
-            newSentimentsData.dataSets.forEach((entry,index)=>{
-                let newData=sentimentsFinalData.dataSets[index].data[0]
-                entry.data=[newData]})
-            newSentimentsData.labels=[newSentimentsData.labels[0]]
+            let newSentimentsData={
+              labels:[sentimentsFinalData.labels[0]],
+              dataSets:[]
+            }
+            let newDataSets=[]
+            sentimentsFinalData.dataSets.forEach((entry,index)=>{
+              let obj={
+                label:entry.label,
+                backgroundColor:entry.backgroundColor,
+                data:[entry.data[0]]
+              }
+              newDataSets.push(obj)
+            })
+            newSentimentsData.dataSets=newDataSets
             setSentimentsModifiedData(newSentimentsData)
           }else if(currentSentiment.id===3){
-            newSentimentsData.dataSets.forEach((entry,index)=>{
-                let newData=sentimentsFinalData.dataSets[index].data[1]
-                entry.data=[newData]})
-            newSentimentsData.labels=[newSentimentsData.labels[1]]
+            let newSentimentsData={
+              labels:[sentimentsFinalData.labels[1]],
+              dataSets:[]
+            }
+            let newDataSets=[]
+            sentimentsFinalData.dataSets.forEach((entry,index)=>{
+              let obj={
+                label:entry.label,
+                backgroundColor:entry.backgroundColor,
+                data:[entry.data[1]]
+              }
+              newDataSets.push(obj)
+            })
+            newSentimentsData.dataSets=newDataSets
             setSentimentsModifiedData(newSentimentsData)
           }else if(currentSentiment.id===4){
-            newSentimentsData.dataSets.forEach((entry,index)=>{
-                let newData=sentimentsFinalData.dataSets[index].data[2]
-                entry.data=[newData]})
-            newSentimentsData.labels=[newSentimentsData.labels[2]]
+            let newSentimentsData={
+              labels:[sentimentsFinalData.labels[2]],
+              dataSets:[]
+            }
+            let newDataSets=[]
+            sentimentsFinalData.dataSets.forEach((entry,index)=>{
+              let obj={
+                label:entry.label,
+                backgroundColor:entry.backgroundColor,
+                data:[entry.data[2]]
+              }
+              newDataSets.push(obj)
+            })
+            newSentimentsData.dataSets=newDataSets
             setSentimentsModifiedData(newSentimentsData)
           }
         }
