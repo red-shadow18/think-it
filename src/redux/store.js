@@ -4,7 +4,7 @@ import {reducer} from "./reducer"
 const enhancer= window.__REDUX_DEVTOOLS_EXTENSION && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const initialState={
-    darkTheme:true,
+    darkTheme:false,
     expertMode:false,
     isUserAuthenticated:false
 }

@@ -19,11 +19,22 @@ const GraphView=()=>{
         labels={categoryDistribution.labels}
         data={categoryDistribution.data}
         />
+         <DoughnutChart
+        heading="No of apps in each category"
+        label="No of apps"
+        labels={categoryDistribution.labels}
+        data={categoryDistribution.data}
+        />
     </Container>
 }
 
 export default GraphView
 
 const Container=styled.div`
+display: flex;
+@media (max-width:1240px){
+    flex-direction: column;
+}
+height:100vh;
     
 `

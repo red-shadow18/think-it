@@ -15,9 +15,9 @@ import ContactMe from "./Components/ContactMe";
 
 const renderView = (isCurrentModeExpert) => {
   if (isCurrentModeExpert) {
-    return <Table />;
+    return <Table />
   } else {
-    return <GraphView />;
+    return <GraphView />
   }
 };
 
@@ -39,6 +39,7 @@ const LandingPage = () => {
 export default LandingPage;
 
 const Container = styled.div`
+height:100%;
   background-color: ${(props) =>
     props.isCurrentThemeDark ? lightTheme.background : darkTheme.background};
   padding: 10px;

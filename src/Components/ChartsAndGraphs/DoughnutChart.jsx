@@ -3,10 +3,14 @@ import styled from "@emotion/styled";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { backgroundColors, borderColors } from "../../data/constants";
+import { useSelector } from "react-redux";
+import { darkTheme, lightTheme } from "../../utils/theme";
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart=({heading,label,labels,data})=>{
+    const isCurrentThemeDark = useSelector((state) => state.darkTheme);
     const [options,setOptions]=useState([])
     const handleFilterChange=()=>{
 
@@ -27,17 +31,21 @@ const DoughnutChart=({heading,label,labels,data})=>{
     }
 
     const chartOptions={
-        radius:200,
-        // legend:{
-        //     labels:{
-        //         color:'red'
-        //     }
+        radius:100,
+        responsive:true,
+        maintainAspectRatio:true,
+        plugins:{legend:{
+            display:true,
+            position:'bottom',
+            labels:{
+                color:isCurrentThemeDark ? lightTheme.text : darkTheme.text,
+            }
 
-        // }
+        }}
     }
     return <Container>
         <p>{heading}</p>
-        <Doughnut data={chartData} options={chartOptions}/>;
+        <Doughnut data={chartData} options={chartOptions}/>
     </Container>
 }
 
@@ -46,4 +54,10 @@ export default DoughnutChart
 const Container=styled.div`
     /* width: 700px;
     height: 700px; */
+
+    p{
+        font-weight: 500;
+    font-size: 16px;
+    text-decoration: underline;
+    }
 `
