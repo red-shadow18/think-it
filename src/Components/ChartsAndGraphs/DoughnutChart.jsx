@@ -9,7 +9,7 @@ import { darkTheme, lightTheme } from "../../utils/theme";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DoughnutChart=({heading,label,labels,data})=>{
+const DoughnutChart=({id,heading,label,labels,data})=>{
     const isCurrentThemeDark = useSelector((state) => state.darkTheme);
     const [options,setOptions]=useState([])
     const handleFilterChange=()=>{
@@ -45,7 +45,7 @@ const DoughnutChart=({heading,label,labels,data})=>{
     }
     return <Container>
         <p>{heading}</p>
-        <Doughnut data={chartData} options={chartOptions}/>
+        <Doughnut id={id} data={chartData} options={chartOptions}/>
     </Container>
 }
 

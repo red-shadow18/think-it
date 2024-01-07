@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { distinctCategories, sentimentData, categoryDistribution } from "../data/graphData";
+import { distinctCategories, sentimentData, categoryDistribution, contentRatingDistribution } from "../data/graphData";
 import DoughnutChart from "./ChartsAndGraphs/DoughnutChart";
+import StackedBarChart from "./ChartsAndGraphs/StackedBarChart";
 
 
 
@@ -14,16 +15,15 @@ const GraphView=()=>{
 
     return <Container>
         <DoughnutChart
+        id="Chart-1"
         heading="No of apps in each category"
         label="No of apps"
         labels={categoryDistribution.labels}
         data={categoryDistribution.data}
         />
-         <DoughnutChart
-        heading="No of apps in each category"
-        label="No of apps"
-        labels={categoryDistribution.labels}
-        data={categoryDistribution.data}
+         <StackedBarChart
+         id="Chart-2"
+        heading="Category wise content rating"
         />
     </Container>
 }
@@ -36,5 +36,6 @@ display: flex;
     flex-direction: column;
 }
 height:100vh;
+width: 100vw;
     
 `

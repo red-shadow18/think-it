@@ -40,6 +40,7 @@ export default LandingPage;
 
 const Container = styled.div`
 height:100%;
+width: 100%;
   background-color: ${(props) =>
     props.isCurrentThemeDark ? lightTheme.background : darkTheme.background};
   padding: 10px;

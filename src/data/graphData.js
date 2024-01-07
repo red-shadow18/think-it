@@ -1,5 +1,16 @@
 import appData from "../data/appData";
 import finalReviews from "../data/appReviews";
+import { allContents, backgroundColors } from "./constants";
+
+const differentContentCount={
+    everyone:0,
+    everyone10P:0,
+    teen:0,
+    mature:0,
+    adult:0,
+    unrated:0
+
+}
 
 let distinctCategories=[]
 appData.forEach(entry=>{
@@ -61,16 +72,22 @@ appData.forEach(entry=>{
 
         if(entry["Content Rating"]==="Everyone"){
             transFormedObj.numberOfAppsForEveryone +=1
+            differentContentCount.everyone +=1
         }else if(entry["Content Rating"]==="Teen"){
             transFormedObj.numberOfAppsForTeen +=1
+            differentContentCount.teen +=1
         }else if(entry["Content Rating"]==="Everyone 10+"){
             transFormedObj.numberOfAppsForEveryone10Plus +=1
+            differentContentCount.everyone10P +=1
         }else if(entry["Content Rating"]==="Unrated"){
             transFormedObj.numberOfAppsForUnrated +=1
+            differentContentCount.unrated +=1
         }else if(entry["Content Rating"]==="Mature 17+"){
             transFormedObj.numberOfAppsForMature +=1
+            differentContentCount.mature +=1
         }else if(entry["Content Rating"]==="Adults only 18+"){
             transFormedObj.numberOfAppsForAudultsOnly +=1
+            differentContentCount.adult +=1
         }
 
         
@@ -125,10 +142,25 @@ appData.forEach(entry=>{
     }
   })
 
-
+const appLabels=distinctCategories.map(item=>item.category)
 const categoryDistribution={
-    labels:distinctCategories.map(item=>item.category),
+    labels:appLabels,
     data:distinctCategories.map(item=>item.appNames.length)
 }  
 
-export {distinctCategories, sentimentData,categoryDistribution}
+const dataSets=[]
+distinctCategories.forEach((category,index)=>{
+    let obj={}
+    obj.label=category.category
+    const {numberOfAppsForEveryone,numberOfAppsForEveryone10Plus,numberOfAppsForTeen,numberOfAppsForMature,numberOfAppsForUnrated, numberOfAppsForAudultsOnly}=category
+    obj.data=[numberOfAppsForEveryone,numberOfAppsForEveryone10Plus,numberOfAppsForTeen,numberOfAppsForMature,numberOfAppsForUnrated, numberOfAppsForAudultsOnly]
+    obj.backgroundColor=backgroundColors[index]
+    dataSets.push(obj)
+})
+
+const contentRatingDistribution={
+    labels:allContents,
+    dataSets:dataSets,
+}
+console.log(contentRatingDistribution)
+export {distinctCategories, sentimentData,categoryDistribution, contentRatingDistribution}

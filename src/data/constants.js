@@ -87,6 +87,10 @@ const backgroundColors=[
   'rgba(66, 203, 168, 1)'
 ]
 
+const allContents=[
+    "Everyone","Everyone 10+", "Teen","Mature 17+","Adults only 18+", "Unrated"
+]
+
 
 
 
@@ -94,5 +98,6 @@ export {
     pageSize,
     logInCredentials,
     backgroundColors,
-    borderColors
+    borderColors,
+    allContents
 }
