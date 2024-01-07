@@ -183,7 +183,7 @@ const Container = styled.div`
     height: 30px;
     border-color: ${(props) =>
       props.isCurrentThemeDark
-        ? lightTheme.secondary.background
+        ? lightTheme.secondary
         : darkTheme.secondary};
     color: ${(props) =>
       props.isCurrentThemeDark ? lightTheme.text : darkTheme.text};
@@ -191,7 +191,7 @@ const Container = styled.div`
     ::placeholder {
       color: ${(props) =>
         props.isCurrentThemeDark
-          ? lightTheme.secondary.background
+          ? lightTheme.secondary
           : darkTheme.secondary};
     }
   }
@@ -287,5 +287,9 @@ const Container = styled.div`
   .label {
     color: ${(props) =>
       props.isCurrentThemeDark ? lightTheme.text : darkTheme.text};
+  }
+
+  .pageSizeSelector {
+    margin-bottom: 10px;
   }
 `;

@@ -125,6 +125,10 @@ appData.forEach(entry=>{
     }
   })
 
-  console.log(sentimentData)
 
-export {distinctCategories, sentimentData}
+const categoryDistribution={
+    labels:distinctCategories.map(item=>item.category),
+    data:distinctCategories.map(item=>item.appNames.length)
+}  
+
+export {distinctCategories, sentimentData,categoryDistribution}
