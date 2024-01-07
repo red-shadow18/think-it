@@ -114,16 +114,20 @@ export default GraphView
 
 const Container=styled.div`
 display: flex;
+flex-wrap: wrap;
+justify-content: center;
 @media (max-width:1240px){
     flex-direction: column;
 }
-height:100vh;
-width: 100vw;
     
 `
 
 const TypeContainer=styled.div`
-    
+    display: flex;
+    width:100%;
+    @media (max-width:1240px){
+        flex-direction: column;
+    }
 `
 
 const UpdatesInfoContainer=styled.div`
@@ -157,7 +161,7 @@ p{
     width: calc(100% - 1em) !important;
 
     @media (max-width: 1024px) {
-      //width: 100% !important;
+      width: 100% !important;
     }
     background-color: black;
     color: white;

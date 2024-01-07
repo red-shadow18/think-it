@@ -36,7 +36,14 @@ const DoughnutChart=({id,heading,label,labels,data, showFilter=false})=>{
             display:true,
             position:'bottom',
 
-        }}
+        }},layout: {
+            padding: {
+              left: 10,
+              right: 10,
+              top: 10,
+              bottom: 10,
+            }
+          },
     }
     return <Container>
         <p>{heading}</p>
