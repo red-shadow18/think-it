@@ -129,7 +129,6 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
             id="pageSize"
             className="inputField"
             value={currentPageSize.id}
-            defaultValue={1}
             onChange={handlePageSizeChange}
           >
             {pageSize.map((size) => (

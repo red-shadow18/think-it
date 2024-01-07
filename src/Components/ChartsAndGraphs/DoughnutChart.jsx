@@ -35,7 +35,6 @@ const DoughnutChart=({id,heading,label,labels,data,width,showFilter=false})=>{
         plugins:{legend:{
             display:true,
             position:'bottom',
-
         }},layout: {
             padding: {
               left: 10,

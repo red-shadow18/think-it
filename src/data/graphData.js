@@ -202,5 +202,6 @@ const sentimentsFinalData={
     labels:allSentiments,
     dataSets:sentimentDataSet
 }
-console.log(mostExpensiveAndMostDownloadedCategoryWise)
+
+
 export {distinctCategories, sentimentData,categoryDistribution, contentRatingDistribution, typeDistribution, maintainanceRecord, mostExpensiveAndMostDownloadedCategoryWise,ratingsAndSizeData, sentimentsFinalData}
