@@ -103,7 +103,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((data,index1) => (
+            {filteredData.length?filteredData.map((data,index1) => (
               <tr key={"D"+index1}>
                 {headers.map((label,index2) => {
                   if (label === "Last Updated") {
@@ -115,7 +115,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
                   }
                 })}
               </tr>
-            ))}
+            )):<div><p>Nothing matched your seach query, retry with searching something else.</p></div>}
           </tbody>
         </table>
       </div>
@@ -218,6 +218,14 @@ const Container = styled.div`
     height: 500px;
     overflow: auto;
     overflow-x: hidden;
+
+    div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:${(props) =>
+      props.isCurrentThemeDark ? lightTheme.text : darkTheme.text};
+    }
   }
 
   thead {
