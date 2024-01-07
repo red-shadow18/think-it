@@ -1,6 +1,6 @@
 import appData from "../data/appData";
 import finalReviews from "../data/appReviews";
-import { allContents, backgroundColors } from "./constants";
+import { allContents, allSentiments, backgroundColors } from "./constants";
 
 const differentContentCount={
     everyone:0,
@@ -187,5 +187,20 @@ const ratingsAndSizeData={
 }
 
 const maintainanceRecord=distinctCategories.map((category,index)=>[index+1, category.category, category.mostDownloaded.reduce(((a,b)=>a+", "+b.name),""),category.mostUpdated.reduce(((a,b)=>a+", "+b.name),""), category.mostUpdated[0].lastupdatedOn])
+
+let sentimentDataSet=[]
+sentimentData.forEach((data,index)=>{
+    let obj={}
+    obj.label=data.category
+    obj.backgroundColor=backgroundColors[index]
+    const {numberOfPositiveReviews,numberOfNegativeReviews,numberOfNeutralReviews}=data
+    obj.data=[numberOfPositiveReviews,numberOfNeutralReviews,numberOfNegativeReviews]
+    sentimentDataSet.push(obj)
+})
+
+const sentimentsFinalData={
+    labels:allSentiments,
+    dataSets:sentimentDataSet
+}
 console.log(mostExpensiveAndMostDownloadedCategoryWise)
-export {distinctCategories, sentimentData,categoryDistribution, contentRatingDistribution, typeDistribution, maintainanceRecord, mostExpensiveAndMostDownloadedCategoryWise,ratingsAndSizeData}
+export {distinctCategories, sentimentData,categoryDistribution, contentRatingDistribution, typeDistribution, maintainanceRecord, mostExpensiveAndMostDownloadedCategoryWise,ratingsAndSizeData, sentimentsFinalData}

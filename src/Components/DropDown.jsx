@@ -15,7 +15,6 @@ const Dropdown=({options,label,handleChange,value,defaultValue})=>{
             id="dropdown"
             className="inputField"
             value={value}
-            defaultValue={defaultValue || options[0].id}
             onChange={handleChange}
           >
             {options.map((option) => (

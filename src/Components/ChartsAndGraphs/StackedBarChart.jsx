@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Chart as ChartJS,
     registerables 
   } from 'chart.js'
 import { Bar } from 'react-chartjs-2';
 import Container from "./Styles";
+import Dropdown from "../DropDown";
 
 ChartJS.register(
     ...registerables 
   )
 
 
-const StackedBarChart=({id,heading,data})=>{
+const StackedBarChart=({id,heading,data,allowFilters=false, filterOptions, handleFilterChange, filterLabel, filterValue})=>{
+
 
     const chartOptions={
         scales: {
@@ -29,8 +31,14 @@ const StackedBarChart=({id,heading,data})=>{
     }
 
     return <Container>
-        <p>{heading}</p>
-        <Bar id={id} data={chartData} options={chartOptions} />
+       <div className="dp-flx">
+       <p>{heading}</p>
+        {allowFilters && <Dropdown options={filterOptions} label={filterLabel} handleChange={handleFilterChange} value={filterValue}/>}
+        </div> 
+        <Bar id={id} data={{
+        labels:data.labels,
+        datasets:data.dataSets,        
+    }} options={chartOptions} />
     </Container>
 }
 

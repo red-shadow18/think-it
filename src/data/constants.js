@@ -91,6 +91,17 @@ const allContents=[
     "Everyone","Everyone 10+", "Teen","Mature 17+","Adults only 18+", "Unrated"
 ]
 
+const allSentiments=[
+    "Positive","Neutral","Negative"
+]
+
+const sentimentFilters=[
+    {id:1,label:"All"},
+    {id:2,label:"Positive"},
+    {id:3,label:"Neutral"},
+    {id:4,label:"Negative"},
+]
+
 
 
 
@@ -99,5 +110,7 @@ export {
     logInCredentials,
     backgroundColors,
     borderColors,
-    allContents
+    allContents,
+    sentimentFilters,
+    allSentiments
 }

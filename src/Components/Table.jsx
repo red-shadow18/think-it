@@ -128,7 +128,7 @@ const Table = ({ data = appData, heading = "Apps Info" }) => {
           <select
             id="pageSize"
             className="inputField"
-            value={currentPageSize.value}
+            value={currentPageSize.id}
             defaultValue={1}
             onChange={handlePageSizeChange}
           >

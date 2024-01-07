@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { distinctCategories, sentimentData, categoryDistribution, contentRatingDistribution, typeDistribution, maintainanceRecord, mostExpensiveAndMostDownloadedCategoryWise, ratingsAndSizeData } from "../data/graphData";
+import {categoryDistribution, contentRatingDistribution, typeDistribution, maintainanceRecord, mostExpensiveAndMostDownloadedCategoryWise, ratingsAndSizeData } from "../data/graphData";
 import DoughnutChart from "./ChartsAndGraphs/DoughnutChart";
 import StackedBarChart from "./ChartsAndGraphs/StackedBarChart";
 import { generateDate } from "./Table";
 import ScatterChart from "./ChartsAndGraphs/ScatterChart";
 import Barchart from "./ChartsAndGraphs/BarChart";
+import SentimentAnalysis from "./ChartsAndGraphs/SentimentAnalysis";
 
-console.log(distinctCategories)
+
 
 const GraphView=()=>{
 
@@ -105,7 +106,7 @@ const GraphView=()=>{
         borderColor="rgba(215, 112, 124, 1.0)"
         />
 
-
+<SentimentAnalysis/>   
     </Container>
 }
 
