@@ -2,17 +2,12 @@ import React,{useState} from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { backgroundColors, borderColors } from "../../data/constants";
-import { darkTheme, lightTheme } from "../../utils/theme";
 import Container from "./Styles";
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart=({id,heading,label,labels,data,width,showFilter=false})=>{
-    const [options,setOptions]=useState([])
-    const handleFilterChange=()=>{
-
-    }
 
     const chartData={
         labels:labels,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
     Chart as ChartJS,
     registerables 
@@ -35,10 +35,7 @@ const StackedBarChart=({id,heading,data,allowFilters=false, width, filterOptions
        <p>{heading}</p>
         {allowFilters && <Dropdown options={filterOptions} label={filterLabel} handleChange={handleFilterChange} value={filterValue}/>}
         </div> 
-        <Bar id={id} data={{
-        labels:data.labels,
-        datasets:data.dataSets,        
-    }} options={chartOptions} />
+        <Bar id={id} data={chartData} options={chartOptions} />
     </Container>
 }
 
